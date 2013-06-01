@@ -153,32 +153,6 @@ public:
     bool Findvalue(Node *s,const V &value)const;
     Node * findmax(Node *s1);
     Node *join(Node *s1,Node *s2);
-void _print(TreeMap<K, V>::Node *p, int dep)const {/*{{{*/
-
-    static bool state[100000];
-
-    for (int i = 0; i < dep; i++)
-        printf("%c    ", state[i] ? '|' : ' ');
-    printf("|____");
-    if (p == NULL) printf("[Null]\n");
-    else
-    {
-        cout << p -> keyword.key << endl;
-        dep++;
-        state[dep] = 1;
-        _print(p -> left, dep);
-        state[dep] = 0;
-        _print(p -> right, dep);
-    }
-}/*}}}*/
-
-void print()const { /*{{{*/
-
-    _print(root, 0);
-    puts("");
-}/*}}}*/
-
-
 };
 
 template <class K,class V>
