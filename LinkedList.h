@@ -296,8 +296,12 @@ template <class T>
 typename LinkedList<T>::node * LinkedList<T>::move(int index)const
 {
    node *tmp=head;
-   for (int i=0;i<index;++i)
-     tmp=tmp->next;
+   if (index+index<currentLength)
+    for (int i=0;i<index;++i)
+      tmp=tmp->next;
+    else
+     for (int i=0;i<currentLength-index+1;++i)
+       tmp=tmp->prev;
     return tmp;
 }
 
